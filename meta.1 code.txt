@@ -1,0 +1,41 @@
+class NFT:
+    def __init__(self, title, description, creator, unique_attribute):
+        self.title = title
+        self.description = description
+        self.creator = creator
+        self.unique_attribute = unique_attribute
+
+class NFTCollection:
+    def __init__(self):
+        self.nfts = []
+
+    def mint_nft(self, title, description, creator, unique_attribute):
+        nft = NFT(title, description, creator, unique_attribute)
+        self.nfts.append(nft)
+
+    def print_nft_details(self):
+        for index, nft in enumerate(self.nfts, start=1):
+            print(f"NFT {index}:")
+            print(f"Title: {nft.title}")
+            print(f"Description: {nft.description}")
+            print(f"Creator: {nft.creator}")
+            print(f"Unique Attribute: {nft.unique_attribute}")
+            print("")
+
+    def print_total_supply(self):
+        print(f"Total Supply: {len(self.nfts)}")
+
+# Example usage:
+if __name__ == "__main__":
+    collection = NFTCollection()
+
+    # Minting NFTs
+    collection.mint_nft("Artwork", "A beautiful digital painting", "Artist1", "Colorful")
+    collection.mint_nft("Music", "Original soundtrack", "Musician1", "Genre: Jazz")
+    collection.mint_nft("Collectible", "Limited edition figurine", "Manufacturer1", "Material: Resin")
+
+    # Printing NFT details
+    collection.print_nft_details()
+
+    # Printing total supply
+    collection.print_total_supply()
